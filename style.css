@@ -67,6 +67,12 @@ button {
     height: 55px;
 }
 
+.eraserButtons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 250px;
+}
+
 #clearButton {
     width: 55px;
     height: 55px;
