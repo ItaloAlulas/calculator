@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
 }
-
+/* Centers everything on screen */
 body,
 html {
     display: flex;
@@ -12,7 +12,7 @@ html {
     align-items: center;
     background: orange;
 }
-
+/* Calculator main body */
 .calculatorContainer {
     display: flex;
     flex-flow: column nowrap;
@@ -28,7 +28,7 @@ html {
     background: rgb(255, 255, 255);
     border-radius: 25px;
 }
-
+/* The calculator screen */
 .screen {
     display: flex;
     justify-content: end;
@@ -38,14 +38,14 @@ html {
     background: #555;
     border-radius: 15px;
 }
-
+/* Content in screen */
 p {
     margin-right: 15px;
     color: white;
     font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
-
+/* Digit and Operator Buttons Container */
 .buttonsContainer {
     display: flex;
     flex-flow: column nowrap;
@@ -56,14 +56,14 @@ p {
     max-width: 250px;
     max-height: 250px;
 }
-
+/* Aligns every buttons row */
 .calculatorButtons {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 250px;
 }
-
+/* Default buttons style */
 button {
     width: 55px;
     height: 55px;
@@ -72,67 +72,64 @@ button {
     font-size: 25px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
-
 .digitButton {
     background: #d3d3d3;
     color: #333;
 }
-
 .operatorButton,
 .dotButton {
     background: #777;
     color: white;
 }
-
 .equalButton {
     background: orange;
     color: white;
     font-weight: bolder;
 }
-
+/* Container with the eraser buttons C and DEL */
 .eraserButtons {
     display: flex;
     justify-content: space-evenly;
     width: 250px;
 }
-
 .eraserButtons button {
     width: 55px;
     height: 55px;
     background: tomato;
     color: white;
 }
-
 #deleteButton {
     font-size: 20px;
     font-weight: bolder;
 }
-
 #clearButton {
     font-weight: bolder;
 }
-
+/* "÷" button */
 .firstRow .button4 {
     font-size: 40px;
 }
 
+/* "×" button */
 .secondRow .button4 {
     font-size: 40px;
 }
 
+/* "—" button */
 .thirdRow .button4 {
     font-size: 23px;
     font-weight: bolder;
 }
+/* "." button */
 .fourthRow .button2 {
     font-size: 35px;
     font-weight: bolder;
 }
-
+/* "=" button */
 .fourthRow .button3 {
     font-size: 35px;
 }
-
+/* "+" button */
 .fourthRow .button4 {
     font-size: 40px;
 }

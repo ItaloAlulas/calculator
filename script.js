@@ -1,3 +1,4 @@
+// Functions to do the calculator operations
 function add(num1, num2) {
     return num1 + num2;
 };
@@ -18,6 +19,7 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
+// Choose the right operation
 function operate(num1, operator, num2) {
     let result;
 
@@ -25,10 +27,10 @@ function operate(num1, operator, num2) {
         case "+":
             result = add(num1, num2);
             return result;
-        case "—":
+        case "—": // Subtraction symbol is a special character
             result = subtract(num1, num2)
             return result;
-        case "×":
+        case "×": //  Add symbol is a special character
             result = multiply(num1, num2)
             return result;
         case "÷":
@@ -39,16 +41,23 @@ function operate(num1, operator, num2) {
     }
 }
 
+// Stores the first number, the operator (+,-, etc) and the second number inserted by the user
 let num1 = "";
 let operator = "";
 let num2 = "";
 
+/*
+Key to change between the first and second number to be inserted:
+false = num1
+true = num2
+*/
 let operatorClicked = false;
 
+// Stores every digit button (0 ~ 9) in a NodeList
 const displayContent = document.querySelector("p");
 const digitButtons = document.querySelectorAll(".digitButton");
 
-// Changes the display content when pressed a digit button
+// Changes the display content and stores first or second number when pressed a digit button
 digitButtons.forEach(button => {
     button.addEventListener("click", () => {
         if (displayContent.textContent.length === 13) return;
@@ -68,11 +77,11 @@ digitButtons.forEach(button => {
         };
         if (operatorClicked === false) {
             num1 += button.textContent;
-            console.log(`num1: ${num1}`);
+            //console.log(`num1: ${num1}`);
         }
         if (operatorClicked === true) {
             num2 += button.textContent;
-            console.log(`num2: ${num2}`);
+            //console.log(`num2: ${num2}`);
         }
         displayContent.textContent += `${button.textContent}`;
     });
@@ -85,6 +94,7 @@ dotButton.addEventListener("click", () => {
         displayContent.textContent = "";
     }
 
+    // Constraint to not allow more than one dot in the screen and put "0." when there is no number in the calculator
     if (!operatorClicked) {
         if (num1.includes(".") === false) {
             if (num1 === "" && displayContent.textContent === "") {
@@ -122,7 +132,7 @@ operatorButtons.forEach(button => {
 
         num2 = "";
         displayContent.textContent = "";
-        console.log(operatorClicked);
+        //console.log(operatorClicked);
 
         operator = button.textContent;
     });
@@ -141,13 +151,16 @@ equalButton.addEventListener("click", () => {
     }
 
     operatorClicked = false;
-    console.log(operatorClicked);
+    //console.log(operatorClicked);
 
+
+    // Transform num1 and num2 into float number to make the mathematical operations
     const n1 = parseFloat(num1);
     const n2 = parseFloat(num2);
 
     let result = operate(n1, operator, n2);
 
+    // Reset the operation if there is an error
     if (result === "ERROR" || isNaN(result)) {
         displayContent.textContent = "ERROR";
         num1 = "";
@@ -156,18 +169,20 @@ equalButton.addEventListener("click", () => {
         return;
     }
 
+    // Removes every garbage digit after the dot, e.g, "4.000" to "4" or "3.123000" to "3.123"
     if (Number.isInteger(result)) {
         displayContent.textContent = result.toString().slice(0, 13);
     } else {
         displayContent.textContent = parseFloat(result.toFixed(3)).toString().slice(0, 13);
     }
 
+    // Stores the result into num1 to continue new operations
     num1 = result.toString().slice(0, 13);
     num2 = "";
-    console.log(`num1: ${num1}`);
+    //console.log(`num1: ${num1}`);
 });
 
-// "C" button
+// "C", clear button. Resets everything.
 const clearButton = document.querySelector("#clearButton");
 clearButton.addEventListener("click", () => {
     displayContent.textContent = "0";
@@ -176,16 +191,17 @@ clearButton.addEventListener("click", () => {
     num2 = "";
     operator = "";
     result = "";
-    console.log(`num1: ${num1}`);
+    //console.log(`num1: ${num1}`);
 
     operatorClicked = false;
 });
 
-// "DEL button"
+// "DEL" button, deletes the digit on the right.
 const deleteButton = document.querySelector("#deleteButton");
 deleteButton.addEventListener("click", () => {
     if (displayContent.textContent === "ERROR") return;
 
+    // Removes the last digit typed and transform the content on screen into 0 if there is no more digit to delete.
     if (!operatorClicked) {
         num1 = num1.slice(0, -1);
         displayContent.textContent = num1 || 0;
