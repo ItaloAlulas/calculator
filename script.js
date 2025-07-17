@@ -28,7 +28,7 @@ function operate(num1, operator, num2) {
         case "—":
             result = subtract(num1, num2)
             return result;
-        case "X":
+        case "×":
             result = multiply(num1, num2)
             return result;
         case "÷":
@@ -51,6 +51,8 @@ const digitButtons = document.querySelectorAll(".digitButton");
 // Changes the display content when pressed a digit button
 digitButtons.forEach(button => {
     button.addEventListener("click", () => {
+        if (displayContent.textContent.length === 13) return;
+
         if (displayContent.textContent === "0" && button.textContent === "0") { return; };
 
         if (displayContent.textContent === "0" && button.textContent != "0") {
@@ -155,12 +157,12 @@ equalButton.addEventListener("click", () => {
     }
 
     if (Number.isInteger(result)) {
-        displayContent.textContent = result.toString();
+        displayContent.textContent = result.toString().slice(0, 13);
     } else {
-        displayContent.textContent = parseFloat(result.toFixed(3)).toString();
+        displayContent.textContent = parseFloat(result.toFixed(3)).toString().slice(0, 13);
     }
 
-    num1 = result.toString();
+    num1 = result.toString().slice(0, 13);
     num2 = "";
     console.log(`num1: ${num1}`);
 });
