@@ -60,7 +60,7 @@ const digitButtons = document.querySelectorAll(".digitButton");
 // Changes the display content and stores first or second number when pressed a digit button
 digitButtons.forEach(button => {
     button.addEventListener("click", () => {
-        if (displayContent.textContent.length === 13) return;
+        if (displayContent.textContent.length === 12) return;
 
         if (displayContent.textContent === "0" && button.textContent === "0") { return; };
 
