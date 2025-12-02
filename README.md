@@ -1,9 +1,27 @@
-Hello, welcome to my calculator!
+# 🧮 **Calculator**
 
-This is my last project to complete the Foundations course on TOP (The Odin Project).
-In order to make this, it was needed all of my JavaScript knowledge that I learned throughout the course, and some HTML and CSS too
-(that part was easy, but coding was pretty hard to me). It took me something around 8 hours of code, but I know that time will shrink
-the more I practice and grow as a web developer.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-HINT: the "console.log"s are there to understand what is happening behind, like key toggle between num1 and num2, if want to see it,
-      just removes the "//".
+<img src="images/calculator.png" width="400px">
+  
+It's a simple calculator that performs one operation per time, continuing the calculation with the last result.
+
+---
+## 🕹️ **Live Demo**
+
+👉 [Click here](https://italoalulas.github.io/calculator/)
+
+---
+## ⚙️ **Features**
+
+- 🧮 All the basic operators (+, - , * and /)
+- ❌ Clear and Delete buttons
+- ⏺️ Dot button for floating-point numbers (if there are no numbers, it starts with "0.")
+
+---
+## 🧠 **Learnings**
+
+- Programming Logic with JavaScript
+- Event Listeners with buttons and event handling in the DOM
